@@ -16,9 +16,9 @@ volatile int rpm;
 int main(void){
   DDRA = 0xFF; // set PORTA as Output
   DDRB = 0x00; // set PORTB as input
-  DDRD = 0x00; // set PORTB as input
-  DDRC = 0x00; // set PORTB as input
-  DDRE = 0xff; // set PORTA as Output
+  DDRD = 0x00; // set PORTD as input
+  DDRC = 0x00; // set PORTC as input
+  DDRE = 0xff; // set PORTE as Output
   PORTB = 0x01; // activate pull up of PB0
   PORTC |= (1<<6); // Set Pull up SW0 on PC6 (SW0)
   PORTD |= (1<<2); // Set Pull up resistor PD2 (INT0)
@@ -80,7 +80,9 @@ int main(void){
   } //end of while loop
 } //end of main method
 
+
 // INTERRUPT SERVICE ROUTINES
+
 // D2 interrupt 0
 ISR(INT0_vect,ISR_BLOCK) {
   _delay_ms(125); //delay of 125 milliseconds
